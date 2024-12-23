@@ -1,0 +1,30 @@
+
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+  <h1>Rachel's Portfolio</h1>
+
+  {% load static %}
+
+
+  <a href="{% url 'blog:all_blogs' %}">Blog</a>
+  <br>
+
+  <a href="{% static 'portfolio/static_analysis_notes.pdf' %}">Resume</a>
+  <br>
+  <img src="{% static 'portfolio/sleeping_ed.jpg' %}" width="400px;">
+
+
+  {% for project in projects %}
+    <h2>{{ project.title }}</h2>
+    <p>{{ project.description }}</p>
+    <img src="{{ project.image.url }}" width=200px;>
+    {% if project.url %}
+      <br>
+      <a href="{{ project.url }}">Link</a>
+    {% endif %}
+  {% endfor %}
+
+{% endblock %}
+
+

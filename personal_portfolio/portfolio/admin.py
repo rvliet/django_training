@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Project
 
-# Register your models here.
+# Enables the admin site to show project
+admin.site.register(Project)
